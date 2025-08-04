@@ -83,21 +83,28 @@ body {
   }
 }
 /* home start */
+/* 🌅 Hero Section */
 .hero {
   padding: 80px 0;
   background-color: #0b3c4c;
+  overflow-x: hidden;
 }
 
+/* 🔀 Flex Wrapper */
 .hero-flex {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
+  gap: 30px;
+  min-height: 100vh; /* optional for full screen */
 }
 
+/* 📌 Left Side */
 .hero-left {
   flex: 1;
   max-width: 48%;
+  text-align: center;
 }
 
 .hero-heading {
@@ -106,32 +113,43 @@ body {
   animation: fadeLeft 1s ease-in-out;
   line-height: 1.3;
   color: #d4af37;
+  padding: 0 20px;
 }
 
 .hero-heading span {
-  color: #d4af37; /* golden tone */
+  color: #d4af37;
 }
 
 .hero-description {
   margin-top: 18px;
   font-size: 17px;
   color: white;
+  padding: 0 20px;
+  line-height: 1.6;
 }
 
+/* 🖼️ Right Side with Image */
 .hero-right {
   flex: 1;
   max-width: 48%;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .hero-img {
   width: 100%;
-  height: 50%;
-  top: 90%;
+  max-height: 500px;
+  object-fit: cover;
   border-radius: 8px;
   box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+  display: block;
+  margin-bottom: 20px;
 }
 
+/* 🧊 Overlay on Top */
 .hero-overlay {
   position: absolute;
   bottom: 20px;
@@ -140,9 +158,13 @@ body {
   color: #fff;
   padding: 18px;
   border-radius: 6px;
-  max-width: 90%;
+  max-width: 80%;
   font-size: 15px;
+  z-index: 2;
+  text-align: left;
 }
+
+/* 🌫️ Animation */
 @keyframes fadeLeft {
   0% {
     opacity: 0;
@@ -153,9 +175,12 @@ body {
     transform: translateX(0);
   }
 }
+
+/* 📱 Mobile View */
 @media (max-width: 768px) {
   .hero-flex {
     flex-direction: column;
+    gap: 20px;
   }
 
   .hero-left,
@@ -164,11 +189,36 @@ body {
     text-align: center;
   }
 
+  .hero-heading {
+    font-size: 28px;
+  }
+
+  .hero-description {
+    font-size: 15px;
+    padding: 0 15px;
+  }
+
+  .hero-img {
+    max-height: 280px;
+    margin-bottom: 10px;
+  }
+
   .hero-overlay {
-    bottom: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    max-width: 90%;
+    position: static;
+    margin: 15px auto;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.85);
+  }
+}
+
+/* 🖥️ Extra Large Screens */
+@media (min-width: 1024px) {
+  .hero-overlay {
+    bottom: 20px;
+    left: 20px;
+    position: absolute;
+    margin: 0;
+    text-align: left;
   }
 }
 
